@@ -1,36 +1,36 @@
-<p><H3>16KEY PAD���g�p���� RDA5807 FM DSP���W�I</H3></p>
+<p><H3>16KEY PADを使用した RDA5807 FM DSPラジオ</H3></p>
 <p>
-RDA5807FP�́ARDA�}�C�N������FM�Ή���DSP���W�IIC�ł���BSOP16�s���̃p�b�P�[�W�ŁA�ϊ���Ƀn���_�t�����Ďg�p�����i�p�b�P�[�W�^�C�v�i���ԁj���F�X����̂Œ��Ӂj�B<br><a href="https://www.aitendo.com/product/4797">�����i�f�[�^�V�[�g�̎Q�ƃ����N����j</a>�ɍw���ł��A�g�p���i�����Ȃ��čςނ̂Ŏg���Ղ��B<br>
-I2C�C���^�[�t�F�[�X�ŃR���g���[������̂ŁAArduino�Ƃ̑g�ݍ��킹���\�ł���B<br>
-�����ł́ASeeeduino XIAO�Ƒg�ݍ��킹��BRDA5807FP�͓d��3.3V�œ��삵�A�K�v�ȓd����20mA���x�Ȃ̂ŁAXIAO�i3V3�[�q�j���狟���ł���B<br>
-�g�p����RDA5807�p�̃��C�u�����́A<a href="https://github.com/pu2clr/RDA5807">������ipu2clr at GitHub�j</a>�ɂ���B<br>
-��{�I�Ȏg�����́A<a href="https://qiita.com/nanase/items/b9efc547d395d2d7cbc0">������iQiita�j</a>���Q�l�ɂ���Ɨǂ��B<br>
+RDA5807FPは、RDAマイクロ製のFM対応のDSPラジオICである。SOP16ピンのパッケージで、変換基板にハンダ付けして使用した（パッケージタイプ（副番）が色々あるので注意）。<br><a href="https://www.aitendo.com/product/4797">安価（データシートの参照リンクあり）</a>に購入でき、使用部品が少なくて済むので使い易い。<br>
+I2Cインターフェースでコントロールするので、Arduinoとの組み合わせが可能である。<br>
+ここでは、Seeeduino XIAOと組み合わせる。RDA5807FPは電圧3.3Vで動作し、必要な電流は20mA程度なので、XIAO（3V3端子）から供給できる。<br>
+使用したRDA5807用のライブラリは、<a href="https://github.com/pu2clr/RDA5807">こちら（pu2clr at GitHub）</a>にある。<br>
+基本的な使い方は、<a href="https://qiita.com/nanase/items/b9efc547d395d2d7cbc0">こちら（Qiita）</a>を参考にすると良い。<br>
 </p>
 <p>
-�I�ǂ�{�����[���̕ύX�ɂ́A<a href="https://www.aitendo.com/product/7297">4x4��Keypad</a>���g�p����BXIAO�Ƃ�<a href="https://www.aitendo.com/product/9891">MCP23107�Ƃ���IC�i��j</a>���o�R���āAI2C�C���^�[�t�F�[�X�Őڑ�����B<br>
-MCP23017���T�|�[�g����<a title="Keypad���C�u����" href="https://github.com/joeyoung/arduino_keypads">Keypad_MC17.h���C�u����</a>�𗘗p�����B<br>
-���̃��C�u�����͕W����Keypad.h���C�u�������g�����Ă���B
+選局やボリュームの変更には、<a href="https://www.aitendo.com/product/7297">4x4のKeypad</a>を使用する。XIAOとは<a href="https://www.aitendo.com/product/9891">MCP23107というIC（基板）</a>を経由して、I2Cインターフェースで接続する。<br>
+MCP23017をサポートする<a title="Keypadライブラリ" href="https://github.com/joeyoung/arduino_keypads">Keypad_MC17.hライブラリ</a>を利用した。<br>
+このライブラリは標準のKeypad.hライブラリを拡張している。
 </p>
 
-<p><strong>�@�\</strong><br>
-16�̃^�N�g�X�C�b�`�̓��A�Q�̓{�����[���̑����A�P�́A�ቹ�̃u�[�X�g�ؑւɎg�p�A�c���13�͑I�ǁi�v���O���~���O���K�v�j�Ɏg�p�ł���B<br>OLED�i�����̕����g�p�j�ɂ́A�I�ǂ������g���A�{�����[���̐��l�A�M�����x�iRSSI�j��\�����Ă���B
-��M���g���͈̔͂́A76�|108MHz�i�ɐݒ肵���j�ŁA���C�hFM�Ή��ł���B<br>�o�͂̓I�[�f�B�I�W���b�N�o�R�ŏ����a�̃X�s�[�J�[�i�X�e���I�j��ڑ�����B
+<p><strong>機能</strong><br>
+16個のタクトスイッチの内、２個はボリュームの増減、１個は、低音のブースト切替に使用、残りの13個は選局（プログラミングが必要）に使用できる。<br>OLED（横長の物を使用）には、選局した周波数、ボリュームの数値、信号強度（RSSI）を表示している。
+受信周波数の範囲は、76－108MHz（に設定した）で、ワイドFM対応である。<br>出力はオーディオジャック経由で小口径のスピーカー（ステレオ）を接続する。
 </p>
-<p><strong>H/W�\��</strong><br>
- �ESeeeduino XIAO - �R���g���[��<br>
- �ESSD1306 128x32 OLED�\�����u<br>
- �E4x4��Keypad<br>
- �EXtal���U��i32768Hz�j�A�R���f���T��<br>
- �EMCP23107���<br>
- �EI2C�ڑ�&nbsp; RDA5807FP�A�\�����u�AMCP23107�i�}���`�h���b�v�Őڑ��j<br>
-   &nbsp;&nbsp;&nbsp; �R�����ɐڑ��������_�ŉ����������Ȃ����̂ŁASCK��SDA��5.6K���̃v���A�b�v��R��ڑ����Ă���<br>
+<p><strong>H/W構成</strong><br>
+ ・Seeeduino XIAO - コントローラ<br>
+ ・SSD1306 128x32 OLED表示装置<br>
+ ・4x4のKeypad<br>
+ ・Xtal発振器（32768Hz）、コンデンサ類<br>
+ ・MCP23107基板<br>
+ ・I2C接続&nbsp; RDA5807FP、表示装置、MCP23107（マルチドロップで接続）<br>
+   &nbsp;&nbsp;&nbsp; ３つ同時に接続した時点で応答が無くなったので、SCKとSDAに5.6KΩのプルアップ抵抗を接続してある<br>
 </p>
 <p>
-<img src="./RDA5807_XIAO_PAD_1.jpg" width="360" height="440"><br>
-�ėp��Ɏ����B��O��XIAO�A����RDA5807�B�A�N�����P�[�X�̏�ʂ�Keypad��z�u�B
+<img src="https://github.com/asmnoak/rda5807_xiao_pad16_oled/edit/main/RDA5807_XIAO_PAD_1.jpg" width="360" height="440"><br>
+汎用基板に実装。手前がXIAO、奥がRDA5807。アクリルケースの上面にKeypadを配置。
 </p>
-<p><strong>�ڑ�</strong><br>
-�e�R���|�[�l���g�̐ڑ��͈ȉ��̒ʂ�B<br>
+<p><strong>接続</strong><br>
+各コンポーネントの接続は以下の通り。<br>
 <p>
 <table> 
 <tr>
@@ -46,45 +46,45 @@ MCP23017���T�|�[�g����<a title="Keypad���C�u����" href="https://github.com/joeyo
 </p>
 </p>
 <p>
-I2C�̃A�h���X
+I2Cのアドレス
 <table> 
 <tr>
-<td>RDA5807FP</td><td>0x10&nbsp;or&nbsp;0x11&nbsp;���C�u�����Ŋ���</td>
+<td>RDA5807FP</td><td>0x10&nbsp;or&nbsp;0x11&nbsp;ライブラリで既定</td>
 </tr>
 <tr>
-<td>OLED</td><td>0x3C&nbsp;����</td>
+<td>OLED</td><td>0x3C&nbsp;既定</td>
 </tr>
 <tr>
-<td>MCP23107</td><td>0x20&nbsp;��̃n���_�t���i�u���b�W�W�����p�[�j�Őݒ�</td>
+<td>MCP23107</td><td>0x20&nbsp;基板のハンダ付け（ブリッジジャンパー）で設定</td>
 </tr>
 </table>
 </p>
-<p><strong>�C���X�g�[��</strong><br>
+<p><strong>インストール</strong><br>
 <ol>
-<li>�R�[�h���AZIP�`���Ń_�E�����[�h</li>
-<li>ArduinoIDE�ɂ����āA���C�u�����}�l�[�W������ȉ����������ăC���X�g�[������</li>
+<li>コードを、ZIP形式でダウンロード</li>
+<li>ArduinoIDEにおいて、ライブラリマネージャから以下を検索してインストールする</li>
  <ul>
   <li>Adafruit_BusIO</li>
   <li>Adafruit_GFX</li>
   <li>Adafruit_SSD1306</li>
  </ul>
-<li>�ǉ��̃��C�u�����i�����̃����N���j���AZIP�`���Ń_�E�����[�h�A���C�u�����}�l�[�W������C���X�g�[������</li>
+<li>追加のライブラリ（文中のリンクより）を、ZIP形式でダウンロード、ライブラリマネージャからインストールする</li>
  <ul>
   <li>RDA5807</li>
   <li>MCP23107</li>
  </ul>
-<li>ArduinoIDE����rda5807_xiao_pad16_oled.ino���J��</li>
-<li>�u���؁E�R���p�C���v�ɐ���������A��U�A�u���O��t���ĕۑ��v���s��</li>
+<li>ArduinoIDEからrda5807_xiao_pad16_oled.inoを開く</li>
+<li>「検証・コンパイル」に成功したら、一旦、「名前を付けて保存」を行う</li>
 </ol>
 </p>
-<p><strong>�኱�̉��</strong><br>
-�E��H�}�̓f�[�^�V�[�g���Q�Ƃ̂��ƁBLOUT�AROUT�̃R���f���T��100�|200��F���x��ڑ�����Ɖ������ǂ��Ȃ�B�Ȃ��A��H�}�ɂ���C���_�N�^���X�n�̕��i�͖����Ă����삷��B<br>
-�EstnFreq[]�Ɏ�M��������ǂ̎��g�����w�肷��B�Ⴆ��80.4MHz�̏ꍇ�A8040�Ǝw�肷��B�Ȃ��AstnName[]�̓R�����g�ł���A�\���ɂ͎g���Ă��Ȃ��B<br>
-�EMCP23107�̊��Keypad�Ԃ�8�{�̐��Őڑ�����K�v������BMCP23107�͓d�����x�������킹�邽�߁A3.3V�œ��삳���Ă���B<br>
+<p><strong>若干の解説</strong><br>
+・回路図はデータシートを参照のこと。LOUT、ROUTのコンデンサは100－200μF程度を接続すると音質が良くなる。なお、回路図にあるインダクタンス系の部品は無くても動作する。<br>
+・stnFreq[]に受信する放送局の周波数を指定する。例えば80.4MHzの場合、8040と指定する。なお、stnName[]はコメントであり、表示には使っていない。<br>
+・MCP23107の基板とKeypad間は8本の線で接続する必要がある。MCP23107は電圧レベルを合わせるため、3.3Vで動作させている。<br>
 <p>
-<img src="./RDA5807_XIAO_PAD_2.jpg" width="360" height="480"><br>
+<img src="https://github.com/asmnoak/rda5807_xiao_pad16_oled/edit/main/RDA5807_XIAO_PAD_2.jpg" width="360" height="480"><br>
 </p>
 </p>
-<p><strong>���ӎ���</strong><br>
-�E���p�̍ۂ́A���ȐӔC�ł��y���݂��������B<br>
+<p><strong>注意事項</strong><br>
+・利用の際は、自己責任でお楽しみください。<br>
 </p>
