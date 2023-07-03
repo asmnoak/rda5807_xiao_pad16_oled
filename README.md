@@ -82,7 +82,7 @@ I2Cのアドレス
 ・stnFreq[]に受信する放送局の周波数を指定する。例えば80.4MHzの場合、8040と指定する。なお、stnName[]はコメントであり、表示には使っていない。<br>
 ・MCP23107の基板とKeypad間は8本の線で接続する必要がある。MCP23107は電圧レベルを合わせるため、3.3Vで動作させている。<br>
 <p>
-<img src="https://github.com/asmnoak/rda5807_xiao_pad16_oled/blob/master/RDA5807_XIAO_PAD_2.jpg" width="360" height="480"><br>
+<img src="https://github.com/asmnoak/rda5807_xiao_pad16_oled/blob/main/RDA5807_XIAO_PAD_2.JPG" width="360" height="480"><br>
 </p>
 </p>
 <p><strong>注意事項</strong><br>
