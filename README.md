@@ -26,7 +26,7 @@ MCP23017をサポートする<a title="Keypadライブラリ" href="https://gith
    &nbsp;&nbsp;&nbsp; ３つ同時に接続した時点で応答が無くなったので、SCKとSDAに5.6KΩのプルアップ抵抗を接続してある<br>
 </p>
 <p>
-<img src="https://github.com/asmnoak/rda5807_xiao_pad16_oled/blob/master/RDA5807_XIAO_PAD_1.jpg" width="360" height="440"><br>
+<img src="https://github.com/asmnoak/rda5807_xiao_pad16_oled/blob/main/RDA5807_XIAO_PAD_1.JPG" width="360" height="440"><br>
 汎用基板に実装。手前がXIAO、奥がRDA5807。アクリルケースの上面にKeypadを配置。
 </p>
 <p><strong>接続</strong><br>
